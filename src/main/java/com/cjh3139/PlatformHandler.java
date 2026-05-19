@@ -2,6 +2,7 @@ package com.cjh3139;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
 import org.bukkit.entity.BlockDisplay;
@@ -36,7 +37,7 @@ public class PlatformHandler {
         });
         ghastDisplay.addPassenger(blockDisplay);
 
-        Platform platform = new Platform(ghastDisplay, blockDisplay);
+        Platform platform = new Platform(ghastDisplay, blockDisplay, isMoveable);
         if (isMoveable){
             passengers.add(platform);
         }
@@ -47,5 +48,16 @@ public class PlatformHandler {
         return ghastDisplay;
     }
 
+    public void buildCourse(Player player){
+        World world = player.getWorld();
+        BlockData gold = Material.GOLD_BLOCK.createBlockData();
 
+        spawnBlock(player, gold, new Location(world, -187, -50, -124), 1f, true);
+        spawnBlock(player, gold, new Location(world, -186, -50, -127), 2f, true);
+        spawnBlock(player, gold, new Location(world, -184, -50, -124), 2f, true);
+        spawnBlock(player, gold, new Location(world, -186, -50, -121), 2f, true);
+
+        spawnBlock(player, gold, new Location(world, -167, -51, -124), 3f, false);
+        spawnBlock(player, gold, new Location(world, -148.5, -50, -112.5), 3f, false);
+    }
 }

@@ -1,0 +1,6 @@
+name: APCSAGame
+version: 1.0-SNAPSHOT
+main: com.cjh3139.FirstPlugin
+api-version: '1.21'
+description: AP CSA platform jumping game
+authors: [CJH3139]
