@@ -52,12 +52,12 @@ public class PlatformHandler {
         World world = player.getWorld();
         BlockData gold = Material.GOLD_BLOCK.createBlockData();
 
-        spawnBlock(player, gold, new Location(world, -187, -50, -124), 1f, true);
-        spawnBlock(player, gold, new Location(world, -186, -50, -127), 2f, true);
-        spawnBlock(player, gold, new Location(world, -184, -50, -124), 2f, true);
-        spawnBlock(player, gold, new Location(world, -186, -50, -121), 2f, true);
+        spawnBlock(player, gold, new Location(world, -187, 100, -124), 1f, true);
+        spawnBlock(player, gold, new Location(world, -186, 100, -127), 2f, true);
+        spawnBlock(player, gold, new Location(world, -184, 100, -124), 2f, true);
+        spawnBlock(player, gold, new Location(world, -186, 100, -121), 2f, true);
 
-        spawnBlock(player, gold, new Location(world, -167, -51, -124), 3f, false);
-        spawnBlock(player, gold, new Location(world, -148.5, -50, -112.5), 3f, false);
+        spawnBlock(player, gold, new Location(world, -167, 100, -124), 3f, false);
+        spawnBlock(player, gold, new Location(world, -148.5, 100, -112.5), 3f, false);
     }
 }
