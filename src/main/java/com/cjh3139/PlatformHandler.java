@@ -28,12 +28,13 @@ public class PlatformHandler {
            display.setBlock(block);
            Transformation translation = display.getTransformation();
            translation.getScale().set(new Vector3f(scale, 0.5f, scale));
-           translation.getTranslation().set(scale * -0.5, -1, scale * -0.925);
+           translation.getTranslation().set(scale * -0.5, -0.5, scale * -0.925);
            display.setTransformation(translation);
         });
         HappyGhast ghastDisplay = location.getWorld().spawn(location, HappyGhast.class, ghast->{
-           ghast.setInvisible(true);
-           ghast.getAttribute(Attribute.SCALE).setBaseValue(0.25);
+           //ghast.setInvisible(true);
+           ghast.setAI(false);
+           ghast.getAttribute(Attribute.SCALE).setBaseValue(0.25 * scale);
         });
         ghastDisplay.addPassenger(blockDisplay);
 

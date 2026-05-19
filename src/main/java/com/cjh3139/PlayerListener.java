@@ -61,7 +61,12 @@ public class PlayerListener implements Listener{
                 if (game.getState().equals("Paused")){
                     FirstPlugin.getInstance().getPlatformHandler().buildCourse(player);
                     game.start();
-                } else {
+                }
+            }
+            else if (block != null && block.getType().equals(Material.LIGHT_WEIGHTED_PRESSURE_PLATE)){
+                Game game = FirstPlugin.getInstance().getGameManager().getGame(player.getUniqueId());
+                if (game == null) return;
+                if (game.getState().equals("Running")){
                     Duration elapsed = game.finish();
                     player.sendMessage(MiniMessage.miniMessage().deserialize(
                         "<green><bold>Finished!</bold> <white>Time: <yellow>" + formatDuration(elapsed)));
