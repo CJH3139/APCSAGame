@@ -13,9 +13,12 @@ import org.bukkit.util.Transformation;
 import org.bukkit.block.data.BlockData;
 import org.joml.Vector3f;
 
+import java.util.ArrayList;
+
 public class PlatformHandler {
 
-    private
+    private static final ArrayList<Platform> passengers = new ArrayList<>();
+
     public HappyGhast spawnBlock(Player player, BlockData block, Location location, float scale, boolean isMoveable){
 
         location.setYaw(0f);
@@ -32,8 +35,14 @@ public class PlatformHandler {
            ghast.getAttribute(Attribute.SCALE).setBaseValue(0.25);
         });
         ghastDisplay.addPassenger(blockDisplay);
+
+        Platform platform = new Platform(ghastDisplay, blockDisplay);
         if (isMoveable){
-            // TODO - set var
+            passengers.add(platform);
+        }
+        Game game = FirstPlugin.getInstance().getGameManager().getGame(player.getUniqueId());
+        if (game != null){
+            game.addPlatform(platform);
         }
         return ghastDisplay;
     }
